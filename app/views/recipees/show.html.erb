@@ -1,0 +1,67 @@
+<%- model_class = Recipee -%>
+<div class="page-header">
+  <h1> <%= @recipee.name %> </h1>
+</div>
+
+<dl class="dl-horizontal">
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
+  <dd><%= @recipee.name %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:imagen) %>:</strong></dt>
+  <dd><%= image_tag @recipee.avatar.url %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:descripción) %>:</strong></dt>
+  <dd><%= @recipee.instructions %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:ingredientes) %>:</strong></dt>
+  <dd><%= @recipee.ingredients %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:instrucciones) %>:</strong></dt>
+  <dd><%= @recipee.description %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:comen) %>:</strong></dt>
+  <dd><%= @recipee.eating_qtty %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:Tipo_de_comida) %>:</strong></dt>
+  <dd><%= @recipee.food_type %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:ocasión) %>:</strong></dt>
+  <dd><%= @recipee.ocassion %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:horas) %>:</strong></dt>
+  <dd><%= @recipee.hours %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:minutes) %>:</strong></dt>
+  <dd><%= @recipee.minutes %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:video) %>:</strong></dt>
+  <dd><%= @recipee.video %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:País) %>:</strong></dt>
+  <dd><%= @recipee.country %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:tips) %>:</strong></dt>
+  <dd><%= @recipee.tips %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:difficultad) %>:</strong></dt>
+  <dd><%= @recipee.difficulty %></dd>
+  <!-- ************************ -->
+  <dt><strong><%= model_class.human_attribute_name(:subido_por) %>:</strong></dt>
+  <dd><%= @recipee.user.username %></dd>
+  <!-- ************************ -->
+</dl>
+
+<%= link_to 'Atrás',
+              recipees_path, :class => 'btn btn-default'  %>
+
+<% if user_signed_in? %>
+  <% if current_user == @recipee.user || current_user.admin == true %>
+    <%= link_to 'Editar', edit_recipee_path, :class => 'btn btn-default' %>
+    <%= link_to 'Borrar receta',
+              recipee_path(@recipee),
+              :method => 'delete',
+              :data => { :confirm => '¿Seguro? Una vez borrada la receta no puede recuperarse'},
+              :class => 'btn btn-danger' %>
+  <% end %> 
+<% end %>

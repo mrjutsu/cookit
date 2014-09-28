@@ -1,0 +1,41 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= include reset
+ *= require_tree .
+ *= require_self
+ */
+
+/*put = include reset to reset the default css*/
+
+/*font-family: Gabriola, Helvetica, Arial;*/
+.signuph2{
+	display:none;
+}
+.signupfld{
+	font-family: "Verdana";
+	font-size: 1.2em;
+	width: 30%;
+	margin: 1% 0px 1% 0px;
+	/*float: right;*/
+}
+
+.signuplbl{
+	float: left;
+	font-size: 1em;
+}
+
+.signupform{
+	margin: 25% 0px -25% 40%;
+	width: 70%;
+}
+

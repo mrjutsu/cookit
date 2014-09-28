@@ -1,0 +1,20 @@
+<h2 class="signuph2">Inicia sesión</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ <div class="signupform">
+  <div class="signupdiv"><%= f.label :email, class: "signuplbl" %><br />
+  <%= f.email_field :email, autofocus: true, class: "signupfld" %></div>
+
+  <div class="signupdiv"><%= f.label :contraseña, class: "signuplbl" %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "signupfld" %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me, class: "signupfld" %> <%= f.label :recordarme, class: "signuplbl" %></div>
+  <% end %>
+
+  <%= f.submit "Iniciar Sesión", class: "signupfld"  %><br>
+  <%= render "devise/shared/links" %>
+</div>
+
+<% end %>
+

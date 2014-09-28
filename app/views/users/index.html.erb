@@ -1,0 +1,46 @@
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Profile pic</th>
+      <th>Bio</th>
+      <th>Cooking expertise</th>
+      <th>Favorite foods</th>
+      <th>Location</th>
+      <th>Url</th>
+      <th>Language</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.encrypted_password %></td>
+        <td><%= user.profile_pic %></td>
+        <td><%= user.bio %></td>
+        <td><%= user.cooking_expertise %></td>
+        <td><%= user.favorite_foods %></td>
+        <td><%= user.location %></td>
+        <td><%= user.url %></td>
+        <td><%= user.language %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_registration_path %>
+<%= link_to 'Sign Out', destroy_user_session_path, method: "Delete" %>

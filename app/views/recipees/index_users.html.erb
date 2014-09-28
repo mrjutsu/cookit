@@ -1,0 +1,57 @@
+<h1>Listing recipees</h1>
+
+<%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
+<%= link_to 'Edit profile',  edit_user_registration_path, method: :get %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ingredients</th>
+      <th>Food Type</th>
+      <th>Ocassion</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Video</th>
+      <th>Eating Quantity</th>
+      <th>Hours</th>
+      <th>Minutes</th>
+      <th>Country</th>
+      <th>Tips</th>
+      <th>Difficulty</th>
+      <th>Rating</th>
+      <th>Location</th>
+      <th>User</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipees.each do |recipee| %>
+      <tr>
+        <td><%= recipee.name %></td>
+        <td><%= recipee.ingredients %></td>
+        <td><%= recipee.food_type %></td>
+        <td><%= recipee.ocassion %></td>
+        <td><%= recipee.description %></td>
+        <td><%= image_tag @recipee.avatar.url(:thumb) %></td>
+        <td><%= recipee.video %></td>
+        <td><%= recipee.eating_qtty %></td>
+        <td><%= recipee.minutes %></td>
+        <td><%= recipee.hours %></td>
+        <td><%= recipee.country %></td>
+        <td><%= recipee.tips %></td>
+        <td><%= recipee.difficulty %></td>
+        <td><%= recipee.rating %></td>
+        <td><%= recipee.location %></td>
+        <td><%= recipee.user.username %></td>
+        <td><%= link_to 'Show', recipee %></td>
+        <td><%= link_to 'Destroy', recipee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipee', new_recipee_path %>

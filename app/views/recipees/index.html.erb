@@ -1,0 +1,38 @@
+<%- model_class = Recipee -%>
+<div class="page-header">
+  <h1>Recetas</h1>
+</div>
+
+<%= link_to 'Cerrar sesión',  destroy_user_session_path, method: :delete, :class => 'btn btn-default btn-xs' %>
+<%= link_to 'Perfil',  edit_user_registration_path, method: :get, :class => 'btn btn-default btn-xs' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:avatar_file_name) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipees.each do |recipee| %>
+      <tr>
+        <td><%= link_to recipee.name, recipee %></td>
+        <td><%= recipee.instructions %></td>
+        <td><%= recipee.avatar%></td>
+        <td><%= time_ago_in_words(recipee.created_at) %></td>
+        <% if user_signed_in? %>
+          <% if current_user == recipee.user || current_user.admin == true %>
+            <td><%= link_to 'Editar', edit_recipee_path(recipee), :class => 'btn btn-default btn-xs' %></td>
+            <td><%= link_to 'Eliminar receta', recipee, method: :delete, data: { confirm: '¿Seguro? Una vez eliminada la receta no hay marcha atrás' }, :class => 'btn btn-xs btn-danger' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Crear receta',
+            new_recipee_path,
+            :class => 'btn btn-primary' %>

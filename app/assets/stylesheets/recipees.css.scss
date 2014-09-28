@@ -1,0 +1,26 @@
+/* Place all the styles related to the Recipees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com*/
+
+.recipe-field{
+	margin: 0px 0px 0px 2%;
+}
+
+.recipe-label{
+	text-align: left;
+	font-size: 1.2em;
+	float: left;
+}
+
+.recipe-tf{
+	
+	margin: 0px 10% 0px 25%;
+	width: 50%;
+	height: 25px;
+	float: right;
+
+}
+
+.actions{
+	float: right;
+}

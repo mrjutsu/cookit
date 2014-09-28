@@ -1,0 +1,17 @@
+<%= form_for(@landpage) do |f| %>
+  <% if @landpage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@landpage.errors.count, "error") %> prohibited this landpage from being saved:</h2>
+
+      <ul>
+      <% @landpage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
