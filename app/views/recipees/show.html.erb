@@ -107,7 +107,7 @@
               recipees_path, :class => 'btn btn-lg btn-default'  %>
             <% if current_user == @recipee.user %>
                 <%= link_to 'Eliminar receta',
-                recipees_path, method: :delete, :class => 'btn btn-danger'  %>
+                recipees_path(recipee), :class => 'btn btn-danger', method: :delete  %>
             <% end %>
 
 <% if user_signed_in? %>
