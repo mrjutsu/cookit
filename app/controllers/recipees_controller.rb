@@ -111,6 +111,6 @@ class RecipeesController < ApplicationController
       #params.require(:recipee).permit(:name, :ingredients, :food_type, :ocassion, :description, :picture, :eating_qtty, :prep_time, :country, :difficulty, :rating, :location)
 
       #Test params
-      params.require(:recipee).permit(:name, :ingredients, :food_type, :ocassion, :description, :eating_qtty, :hours, :minutes, :difficulty, :rating, :tips, :avatar, :instructions, :video, :country)
+      params.require(:recipee).permit(:name, :ingredients, :food_type, :ocassion, :description, :eating_qtty, :hours, :minutes, :difficulty, :tips, :avatar, :instructions, :video, :country)
     end
 end
