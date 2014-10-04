@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928001452) do
+ActiveRecord::Schema.define(version: 20141004171548) do
 
   create_table "models", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -51,16 +51,16 @@ ActiveRecord::Schema.define(version: 20140928001452) do
 
   create_table "recipees", force: true do |t|
     t.string   "name"
-    t.string   "ingredients"
+    t.string   "ingredients",         limit: 300
     t.string   "food_type"
     t.string   "ocassion"
-    t.string   "description"
+    t.string   "description",         limit: 600
     t.string   "picture"
-    t.string   "video"
+    t.string   "video",               limit: 300
     t.string   "eating_qtty"
     t.string   "minutes"
     t.string   "country"
-    t.string   "tips"
+    t.string   "tips",                limit: 300
     t.string   "difficulty"
     t.string   "rating"
     t.string   "location"
