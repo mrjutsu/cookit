@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cook t! (Beta)</title>
+  <title>Cook t!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <%= link_to 'Cook it!', landpages_path, :class => "navbar-brand", :id => "cookit-main-txt" %>
+            <%= link_to 'Cook it!', root_path, :class => "navbar-brand", :id => "cookit-main-txt" %>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -42,7 +42,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <%= link_to 'Inicio', landpages_path, :class => "navbar-brand" %>
+                        <%= link_to 'Inicio', root_path, :class => "navbar-brand" %>
                     </li>
                     <li>
                         <%= link_to 'Recetas', recipees_path, :class => "navbar-brand" %>

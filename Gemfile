@@ -56,6 +56,7 @@ gem 'tzinfo-data'
 
 #Heroku
 gem 'heroku'
+gem 'rails_12factor', group: :production
 
 #pg as database
 gem 'pg', group: :production
