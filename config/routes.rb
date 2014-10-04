@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   #*******************************
 
   devise_scope :user do
-    root to: "recipees#index"
+    root to: "landpages#index"
   end
 
    #root :to => "devise/sessions#new"
