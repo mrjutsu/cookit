@@ -105,10 +105,6 @@
 
             <%= link_to 'Atrás',
               recipees_path, :class => 'btn btn-lg btn-default'  %>
-            <% if current_user == @recipee.user %>
-                <%= link_to 'Eliminar receta',
-                recipees_path(recipee), :class => 'btn btn-danger', method: :delete  %>
-            <% end %>
 
 <% if user_signed_in? %>
   <% if current_user == @recipee.user || current_user.admin == true %>
