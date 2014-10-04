@@ -19,12 +19,6 @@
  *= require_self
  */
 
-/*put = include reset to reset the default css*/
-
-/*font-family: Gabriola, Helvetica, Arial;*/
-
-
-
 .navbar-brand{
 	font-size: 1.7em;
 }
