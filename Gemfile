@@ -69,8 +69,6 @@ gem 'twitter-bootstrap-rails'
 #timeago
 gem 'rails-timeago', '~> 2.0'
 
-gem 'rails_12factor', group: :production
-
 #aws
 gem 'aws-sdk'
 
