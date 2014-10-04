@@ -12,6 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require bootstrap.min
+//= require contact_me
+//= require jqBootstrapValidation
+//= require jquery-1.11.0
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('.prev previous_page disabled').find('a').text("Atrás");
+	$('.next next_page').find('a').text("Siguiente");
+});

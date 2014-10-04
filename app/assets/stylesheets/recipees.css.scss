@@ -6,10 +6,65 @@
 	margin: 0px 0px 0px 2%;
 }
 
+/*#recipeformbck{
+	background-color: #FFFFF0;
+}*/
+
+.control-group{
+	margin: 0px 5% 4% 15%;
+}
+#btn-enviar{
+	padding: 2% 5% 2% 5%;
+	margin: 0px 5% 0px 5%;
+	font-size: 1em;
+}
+#btn-atras{
+	padding: 2% 5% 2% 5%;
+	margin: 0px 5% 0px 5%;
+	font-size: 1em;	
+}
+#btn-cancelar{
+	padding: 2% 5% 2% 5%;
+	margin: 0px 5% 0px 5%;
+	font-size: 1em;
+}
+
+.form-inline{
+	margin: 0px 0px 0px 2%;
+}
+
 .recipe-label{
-	text-align: left;
-	font-size: 1.2em;
-	float: left;
+	background-size: 100% 100%;
+	display: inline-block;
+	margin: 0px 20% 2% 0px;
+	font-family: Gabriola;
+	color: #1B3564;
+	/*text-align: left;*/
+	font-size: 2em;
+	/*float: left;*/
+}
+
+.recipetxtarea{
+	line-height: 20px;
+	font-family: Helvetica, Verdana;
+	font-size: 0.8em;
+}
+
+.formtxt{
+	/*border: 1px solid;*/
+	/*border-color: gray;*/
+	line-height: 20px;
+	font-family: Helvetica, Verdana;
+	font-size: 0.8em;
+	/*margin: 0px 70% 0px 0px;*/
+}
+
+.recipenumberfld{
+	/*border-radius: 5px;*/
+	line-height: 25px;
+	font-family: Helvetica, Verdana;
+	font-size: 1em;
+	padding: 0px 4% 0px 0px;
 }
 
 .recipe-tf{
@@ -23,4 +78,65 @@
 
 .actions{
 	float: right;
+}
+
+.recipeauthor{
+	font-family: Verdana;
+	font-size: 0.8em;
+	margin: 0px 0px 2% 0px;
+}
+
+.recipename{
+	margin: 0px 0px 1% 0px;
+	font-family: Gabriola;
+	font-size: 2.5em;
+	color: #1B3564;
+	font-style: none;
+}
+
+#new-recipe-btn{
+	padding: 0.5% 20% 0.5% 20%;
+	margin: 1% 25% -1% 25%;
+}
+
+.recipedescription{
+	font-family: Helvetica, Verdana;
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+.img-responsive img{
+	/*position: absolute;*/
+	/*margin: -5% 0px -10% -5%;
+	overflow: hidden;*/
+	/*clip: rect(0px,700px,300px,0px);*/
+	margin: 0px 0px -20% 0px;
+	width: 100%;
+	height: auto;
+}
+
+.carousel-inner img{
+	margin: 0px 0px 0px 0px;
+	width: 100%;
+	height: auto;
+}
+
+.recipedetails{
+	font-family: Helvetica, Verdana;
+	font-weight: bold;
+}
+
+.recipeinfo{
+	font-family: Helvetica, Verdana;
+}
+
+.recipe-info-header{
+	margin: 0px 0px 1% 0px;
+	font-family: Gabriola;
+	color: #1B3564;
+	font-size: 1.9em;
+}
+
+.recipeform{
+	margin: 1% 25% 0px 25%;
 }

@@ -1,9 +1,12 @@
 class Recipee < ActiveRecord::Base
 
-	has_attached_file :avatar, :default_url => "/images/:style/missing.png"
+	#has_attached_file :avatar, :default_url => "/images/:style/missing.png"
+	has_attached_file :avatar,:default_url => "cookits3bucket.amazonaws.com",
+                :storage => :s3,
+                :bucket => 'cookits3bucket'
 
   	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  	validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 5.megabytes
+  	validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 4.megabytes
 
 
 	
@@ -20,11 +23,13 @@ class Recipee < ActiveRecord::Base
 	validates :eating_qtty, presence: true
 	validates :hours, presence: true
 	validates :minutes, presence: true
-	# validates :country, presence: true
+	validates :country, presence: true
 	validates :difficulty, presence: true
 	#validates :location, presence: true
 
 	belongs_to :user
+
+	self.per_page = 10
 
 	# def self.search(search)
  #  		if search

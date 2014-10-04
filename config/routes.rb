@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   #****************************************
 
   devise_for :users
-  resources :new_user_session, :path => "/login/"
-  resources :new_user_registration, :path => "signup/"
+  # resources :new_user_session, :path => "/login/"
+  # resources :new_user_registration, :path => "signup/"
 
   #****************************************
   #Changed URL paths for display
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   #*******************************
 
   devise_scope :user do
-    root to: "devise/sessions#new"
+    root to: "landpages#index"
   end
 
    #root :to => "devise/sessions#new"

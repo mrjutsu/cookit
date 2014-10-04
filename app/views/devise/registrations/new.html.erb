@@ -3,25 +3,27 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :name %>
+  <div class="form signupform">
+    <%= f.label :nombre, :class => "signuplbl" %><br>
+    <%= f.text_field :name, :class => "form-control", :placeholder=> "Tu nombre" %>
+
+
+    <%= f.label :usuario, :class => "signuplbl" %><br>
+    <%= f.text_field :username, :class => "form-control", :placeholder=> "Escribe tu nombre de usuario" %>
+
+
+    <%= f.label :email, :class => "signuplbl" %><br />
+    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder=> "Tu email" %>
+
+    <%= f.label :contraseña, :class => "signuplbl" %> 
+    <% if @validatable %><i>(mínimo <%= @minimum_password_length %> caracteres)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder=> "Contraseña" %>
+
+    <%= f.label :confirmación_de_contraseña, :class => "signuplbl" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder=> "Escribe la contraseña de nuevo" %>
+
+    <%= f.submit "Crear cuenta", :class => "btn btn-default signinaction" %>
+
+    <%= link_to 'Iniciar sesión' ,new_user_session_path, :class => "btn btn-default signinaction" %>
   </div>
-  <div class="field">
-    <%= f.label :usuario %><br>
-    <%= f.text_field :username %>
-  </div>
-
-  <div class="field"><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div class="field"><%= f.label :contraseña %> <% if @validatable %><i>(mínimo <%= @minimum_password_length %> caracteres)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div class="field"><%= f.label :confirmación_de_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div class="actions"><%= f.submit "Crear cuenta" %></div>
 <% end %>
-
-<%= render "devise/shared/links" %>

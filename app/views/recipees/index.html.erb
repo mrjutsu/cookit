@@ -1,38 +1,102 @@
 <%- model_class = Recipee -%>
-<div class="page-header">
-  <h1>Recetas</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cook It! (Beta) | Recetas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/recipees.css.scss" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+ 
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"> 
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Inicio</a>
+                    </li>
+                    <li class="active">Recetas</li>
+                </ol>
+            </div>
+        </div>
+
+        <% @recipees.each do |recipee| %>
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-7">
+                <%= link_to image_tag(recipee.avatar.url), recipee, method: :get, :class => "img-responsive img-hover" %>
+            </div>
+            <div class="col-md-5">
+                <h3 class="recipename"><%= link_to recipee.name, recipee %></h3>
+                <h4 class="recipeauthor"><%= recipee.user.username %></h4>
+                <p class="recipedescription"><%= recipee.instructions %></p>
+                <br>
+                <%= link_to 'Ver receta', recipee_path(recipee), method: :get, :class => "btn btn-primary", :id => "see-recipe" %>
+                
+
+            </div>
+        </div>
+
+        <hr>
+
+        <% end %>
 </div>
 
-<%= link_to 'Cerrar sesión',  destroy_user_session_path, method: :delete, :class => 'btn btn-default btn-xs' %>
-<%= link_to 'Perfil',  edit_user_registration_path, method: :get, :class => 'btn btn-default btn-xs' %>
+<div class="row-text-center">
+        <div class="col-lg-12">
+            <%= will_paginate %>
+    </div>
+</div>
+ 
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:avatar_file_name) %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @recipees.each do |recipee| %>
-      <tr>
-        <td><%= link_to recipee.name, recipee %></td>
-        <td><%= recipee.instructions %></td>
-        <td><%= recipee.avatar%></td>
-        <td><%= time_ago_in_words(recipee.created_at) %></td>
-        <% if user_signed_in? %>
-          <% if current_user == recipee.user || current_user.admin == true %>
-            <td><%= link_to 'Editar', edit_recipee_path(recipee), :class => 'btn btn-default btn-xs' %></td>
-            <td><%= link_to 'Eliminar receta', recipee, method: :delete, data: { confirm: '¿Seguro? Una vez eliminada la receta no hay marcha atrás' }, :class => 'btn btn-xs btn-danger' %></td>
-          <% end %>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!-- Footer -->
+<hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Cook it! 2014</p>
+                </div>
+            </div>
+        </footer>
 
-<%= link_to 'Crear receta',
-            new_recipee_path,
-            :class => 'btn btn-primary' %>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

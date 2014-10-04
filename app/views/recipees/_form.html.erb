@@ -16,121 +16,205 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :nombre, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:name]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :imagen, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :avatar_file_name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:avatar_file_name]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :descripción, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :instructions, :placeholder => "Escribe aquí una breve descripción de la receta", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:instructions]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :ingredientes, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :ingredients, :placeholder => "Escribe aquí los ingredientes que necesita la receta", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:ingredients]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :instrucciones, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :placeholder => "Añade aquí el proceso para cocinar la receta", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:description]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :comen, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field(:eating_qtty, in: 1.0..10.0, :placeholder => "¿Cuántos comen?", :class => 'form-control') %>
-    </div>
-    <%= error_span(@recipee[:eating_qtty]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :tipo_de_comida, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :food_type, :placeholder => "Desayuno, Jugo, Comida Árabe, Comida Rápida...", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:food_type]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :ocasión, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ocassion, :placeholder => "Cumpleaños, Cena Familiar, Navidad...", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:ocassion]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :horas, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field(:hours, in: 1.0..24.0, :class => 'form-control') %>
-    </div>
-    <%= error_span(@recipee[:hours]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :minutos, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field(:minutes, in: 1.0..60.0, :class => 'form-control') %>
-    </div>
-    <%= error_span(@recipee[:minutes]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :video, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :video, :placeholder => "¿Tienes un video donde muestras cómo cocinar tu receta? Pega aquí el código de inserción", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:video]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :país, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :country, :placeholder => "¿De qué país proviene esta receta? (Si no sabes, deja este campo en blanco)", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:country]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :tips, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :tips, :placeholder => "¿Tienes algún consejo para cocinar esta receta? Compártelo aquí", :class => 'form-control' %>
-    </div>
-    <%= error_span(@recipee[:tips]) %>
-  </div>
-  <!-- ***************************** -->
-  <div class="control-group">
-    <%= f.label :dificultad, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field(:difficulty, in: 1.0..10.0, :placeholder => "De 1 a 10, ¿qué tan difícil es?", :class => 'form-control') %>
-    </div>
-    <%= error_span(@recipee[:difficulty]) %>
-  </div>
-  <!-- ***************************** -->
+<!-- ******************************* -->
 
-  <%= f.submit 'Enviar', :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => 'Cancelar'),
-            recipees_path, :class => 'btn btn-default' %>
+<form>
+<fieldset>
+
+<div class ="recipeform" id="recipeformbck">
+<!-- Text input-->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :nombre %>
+</div>
+  <div class="controls">
+      <%= f.text_field :name, :class => 'form-control formtxt', :id => "recipenametxt" %>
+      <hr>
+  </div>
+  <%= error_span(@recipee[:name]) %>
+</div>
+
+
+<!-- File Button --> 
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :imagen %>
+</div>
+  <div class="controls">
+      <%= f.file_field :avatar, :class => 'input-file', :id => "exampleInputFile", :class => 'form-control' %>
+      <hr>
+  </div>
+  <%= error_span(@recipee[:avatar]) %>
+</div>
+
+
+<!-- Textarea -->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :descripción %>
+</div>
+  <div class="controls">                     
+      <%= f.text_area :instructions, :placeholder => "Escribe aquí una breve descripción de la receta (Máximo 200 caracteres).", :id => "recipedesc", :class => "form-control recipetxtarea", :rows => "3" %>
+      <hr>
+  </div>
+  <%= error_span(@recipee[:instructions]) %>
+</div>
+
+
+<!-- Textarea -->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :ingredientes %>
+</div>
+  <div class="controls">                     
+    <%= f.text_area :ingredients, :placeholder => "Escribe aquí los ingredientes que necesita la receta", :id => "recipeingredients", :class => "form-control recipetxtarea", :rows => "5" %>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:ingredients]) %>
+</div>
+
+
+<!-- Textarea -->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :instrucciones %>
+</div>
+  <div class="controls">                     
+    <%= f.text_area :description, :placeholder => "Añade aquí el proceso para cocinar la receta", :id => "recipeinstructions", :class => "form-control recipetxtarea", :rows => "10" %>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:description]) %>
+</div>
+
+
+<!-- Text input-->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :tipo_de_comida %>
+</div>
+  <div class="controls">
+    <%= f.text_field :food_type, :placeholder => "Desayuno, Jugo, Comida Árabe, Comida Rápida...", :class => 'form-control formtxt', :id => "recipefoodtype" %>
+    <p class="help-block">Si crees que tu receta pertenece a varios tipos, escríbelos y sepáralos por comas.</p>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:food_type]) %>
+</div>
+
+
+<!-- Text input-->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :ocasión %>
+</div>
+  <div class="controls">
+    <%= f.text_field :ocassion, :placeholder => "Cumpleaños, Cena Familiar, Navidad...", :class => 'form-control formtxt', :id => "recipeocassion" %>
+    <p class="help-block">Si crees que tu receta cabe en más de una ocasión, escríbelas y sepáralas por comas.</p>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:ocassion]) %>
+</div>
+
+
+<!-- Text input-->
+<div class="form-inline">
+  <div class="recipe-label">
+  <%= f.label :comen %>
+</div>
+  <div class="controls">
+    <%= f.number_field(:eating_qtty, in: 1.0..10.0, :class => 'input-small', :id => "recipeeatppl", :class => "form-control recipenumberfld") %> personas
+    <hr>
+  </div>
+  <%= error_span(@recipee[:eating_qtty]) %>
+</div>
+
+
+<!-- Text input-->
+<div class="form-inline">
+  <div class="recipe-label">
+  <%= f.label :duración %>
+</div>
+  <div class="controls">
+    <%= f.label :horas, :class => 'form-control-label' %>
+    <%= f.number_field(:hours, in: 1.0..24.0, :class => 'input-small', :id => "recipehours", :class => "form-control") %>
+
+    <%= f.label :minutos, :class => 'control-label' %>
+
+    <%= f.number_field(:minutes, in: 1.0..60.0, :class => 'input-small', :id => "recipeminutes", :class => "form-control") %>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:minutes]) %>
+  <%= error_span(@recipee[:hours]) %>
+</div>
+
+
+<!-- Textarea -->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :video %>
+</div>
+  <div class="controls">                     
+    <%= f.text_area :video, :placeholder => "¿Tienes un video donde muestras cómo cocinar tu receta? Pega aquí el código de inserción", :id => "recipevideo", :class => "form-control recipetxtarea", :rows => "4" %>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:video]) %>
+</div>
+
+
+<!-- Text input-->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :país %>
+</div>
+  <div class="controls">
+    <%= f.text_field :country, :placeholder => "¿De qué país proviene esta receta? (Si no sabes, deja este campo en blanco)", :class => 'form-control formtxt', :id => "recipecountry" %>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:country]) %>
+</div>
+
+
+<!-- Textarea -->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :tips %>
+</div>
+  <div class="controls">                     
+    <%= f.text_area :tips, :placeholder => "¿Tienes consejos para cocinar esta receta? Compártelo aquí", :id => "recipetips", :class => "form-control recipetxtarea", :rows => "8" %>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:tips]) %>
+</div>
+
+
+<!-- Text input-->
+<div class="col-lg-12">
+  <div class="recipe-label">
+  <%= f.label :dificultad %>
+</div>
+  <div class="controls">
+    <%= f.number_field(:difficulty, in: 1.0..10.0, :class => 'input-small', :id => "recipedifficulty", :class => "form-control") %>
+    <p class="help-block">De 0 a 10, ¿qué tan difícil es cocinar la receta?</p>
+    <hr>
+  </div>
+  <%= error_span(@recipee[:difficulty]) %>
+</div>
+
+
+<!-- Button -->
+<div class="control-group">
+
+  <%= link_to 'Atrás', recipees_path, :class => 'btn btn-default', :id => "btn-atras"  %>
+
+<!-- Button -->
+    <%= f.submit 'Enviar', :class => 'btn btn-success', :id => "btn-enviar" %>
+
+<!-- Button -->
+    <%= link_to t('.cancel', :default => 'Cancelar'),
+            recipees_path, :class => 'btn btn-danger', :id => "btn-cancelar" %>
+
+</div>
+</div>
+</fieldset>
+</form>
 
 <% end %>

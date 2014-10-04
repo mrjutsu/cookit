@@ -1,30 +1,54 @@
-<h1>Listing users</h1>
-
-<table>
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Profile pic</th>
-      <th>Bio</th>
-      <th>Cooking expertise</th>
-      <th>Favorite foods</th>
-      <th>Location</th>
-      <th>Url</th>
-      <th>Language</th>
-      <th colspan="5"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:encrypted_password) %></th>
+      <th><%= model_class.human_attribute_name(:reset_password_token) %></th>
+      <th><%= model_class.human_attribute_name(:reset_password_sent_at) %></th>
+      <th><%= model_class.human_attribute_name(:remember_created_at) %></th>
+      <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
+      <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
+      <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:username) %></th>
+      <th><%= model_class.human_attribute_name(:profile_pic) %></th>
+      <th><%= model_class.human_attribute_name(:bio) %></th>
+      <th><%= model_class.human_attribute_name(:cooking_expertise) %></th>
+      <th><%= model_class.human_attribute_name(:favorite_foods) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
+      <th><%= model_class.human_attribute_name(:language) %></th>
+      <th><%= model_class.human_attribute_name(:gender) %></th>
+      <th><%= model_class.human_attribute_name(:admin) %></th>
+      <th><%= model_class.human_attribute_name(:avatar_file_name) %></th>
+      <th><%= model_class.human_attribute_name(:avatar_content_type) %></th>
+      <th><%= model_class.human_attribute_name(:avatar_file_size) %></th>
+      <th><%= model_class.human_attribute_name(:avatar_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.username %></td>
+        <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= user.encrypted_password %></td>
+        <td><%= user.reset_password_token %></td>
+        <td><%= user.reset_password_sent_at %></td>
+        <td><%= user.remember_created_at %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        <td><%= user.last_sign_in_ip %></td>
+        <td><%= link_to user.name, user, method: :get %></td>
+        <td><%= user.username %></td>
         <td><%= user.profile_pic %></td>
         <td><%= user.bio %></td>
         <td><%= user.cooking_expertise %></td>
@@ -32,15 +56,27 @@
         <td><%= user.location %></td>
         <td><%= user.url %></td>
         <td><%= user.language %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.gender %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.avatar_file_name %></td>
+        <td><%= user.avatar_content_type %></td>
+        <td><%= user.avatar_file_size %></td>
+        <td><%= user.avatar_updated_at %></td>
+        <td><%=l user.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_registration_path(user), method: :get, :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_path(user),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User', new_user_registration_path %>
-<%= link_to 'Sign Out', destroy_user_session_path, method: "Delete" %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_path,
+            :class => 'btn btn-primary' %>

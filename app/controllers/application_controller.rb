@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
   #	!!current_user
   #end
 
+  # #user signed in?
+  def redirect_if_authenticated
+    # redirect_to (:action => index, :notice => "¡Qué gusto volver a verte!") and return
+    if user_signed_in?
+      redirect_to recipees_path unless authenticated?
+    end
+  end
+
   #This redirects after sign in
   def after_sign_in_path_for(user)
      recipees_path

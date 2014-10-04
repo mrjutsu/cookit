@@ -1,1 +1,1 @@
-json.extract! @recipee, :id, :name, :ingredients, :type, :ocassion, :description, :picture, :video, :eating_qtty, :prep_time, :country, :tips, :difficulty, :rating, :location, :created_at, :updated_at
+json.extract! @recipee, :id, :name, :ingredients, :food_type, :ocassion, :description, :avatar, :video, :eating_qtty, :hours, :minutes, :country, :tips, :difficulty, :rating, :location, :created_at, :updated_at

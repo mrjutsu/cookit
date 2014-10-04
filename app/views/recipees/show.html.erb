@@ -1,67 +1,137 @@
-<%- model_class = Recipee -%>
-<div class="page-header">
-  <h1> <%= @recipee.name %> </h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<dl class="dl-horizontal">
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
-  <dd><%= @recipee.name %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:imagen) %>:</strong></dt>
-  <dd><%= image_tag @recipee.avatar.url %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:descripción) %>:</strong></dt>
-  <dd><%= @recipee.instructions %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:ingredientes) %>:</strong></dt>
-  <dd><%= @recipee.ingredients %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:instrucciones) %>:</strong></dt>
-  <dd><%= @recipee.description %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:comen) %>:</strong></dt>
-  <dd><%= @recipee.eating_qtty %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:Tipo_de_comida) %>:</strong></dt>
-  <dd><%= @recipee.food_type %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:ocasión) %>:</strong></dt>
-  <dd><%= @recipee.ocassion %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:horas) %>:</strong></dt>
-  <dd><%= @recipee.hours %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:minutes) %>:</strong></dt>
-  <dd><%= @recipee.minutes %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:video) %>:</strong></dt>
-  <dd><%= @recipee.video %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:País) %>:</strong></dt>
-  <dd><%= @recipee.country %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:tips) %>:</strong></dt>
-  <dd><%= @recipee.tips %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:difficultad) %>:</strong></dt>
-  <dd><%= @recipee.difficulty %></dd>
-  <!-- ************************ -->
-  <dt><strong><%= model_class.human_attribute_name(:subido_por) %>:</strong></dt>
-  <dd><%= @recipee.user.username %></dd>
-  <!-- ************************ -->
-</dl>
+<head>
 
-<%= link_to 'Atrás',
-              recipees_path, :class => 'btn btn-default'  %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cook it! (Beta) | <%= @recipee.name %></title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+  <%- model_class = Recipee -%>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <small></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Inicio</a>
+                    </li>
+                    <li class="active"><%= @recipee.name %></li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                            <%= image_tag @recipee.avatar.url %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="recipename"><%= @recipee.name %></h3>
+                <p class="recipedescription"><%= @recipee.instructions %></p><br><br>
+                <h3 class="recipedetails">Detalles de la receta:</h3><br><br>
+                <ul class="recipeinfo">
+                  <li>Creado por: <%= @recipee.user.username %></li><br>
+                  <li> País de la receta: <%= @recipee.country %></li><br>
+                  <li>Tipo de comida: <%= @recipee.food_type %></li><br>
+                  <li>Ocasión: <%= @recipee.ocassion %></li><br>
+                  <li>Comen: <%= @recipee.eating_qtty %> personas</li><br>
+                  <li>Duración: <%= @recipee.hours %> horas <%= @recipee.minutes %> minutos</li><br>
+                  <li>Dificultad: <%= @recipee.difficulty %></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+          <hr>
+
+            <div class="col-lg-12">
+                <h3 class="recipe-info-header">Ingredientes</h3>
+                <p><%= @recipee.ingredients %></p>
+                <hr>
+
+                <h3 class="recipe-info-header">Instrucciones</h3>
+                <p><%= @recipee.description %></p>
+                <hr>
+
+                <h3 class="recipe-info-header">Video</h3>
+                <p><%= @recipee.video %></p>
+                <hr>
+
+                <h3 class="recipe-info-header">Instrucciones</h3>
+                <p><%= @recipee.description %></p>
+                <hr>
+            </div>
+
+            <%= link_to 'Atrás',
+              recipees_path, :class => 'btn btn-lg btn-default'  %>
 
 <% if user_signed_in? %>
   <% if current_user == @recipee.user || current_user.admin == true %>
-    <%= link_to 'Editar', edit_recipee_path, :class => 'btn btn-default' %>
-    <%= link_to 'Borrar receta',
-              recipee_path(@recipee),
-              :method => 'delete',
-              :data => { :confirm => '¿Seguro? Una vez borrada la receta no puede recuperarse'},
-              :class => 'btn btn-danger' %>
+    <%= link_to 'Editar', edit_recipee_path, :class => 'btn btn-lg btn-default' %>
   <% end %> 
 <% end %>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Cook it! 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

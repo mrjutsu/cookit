@@ -6,7 +6,8 @@ class RecipeesController < ApplicationController
   # GET /recipees
   # GET /recipees.json
   def index
-    @recipees = Recipee.all
+    #@recipees = Recipee.all
+    @recipees = Recipee.paginate(:page => params[:page], :per_page => 10)
     # @recipees = Recipee.search(params[:search])
     #@recipees = Recipee.new
   end
@@ -34,8 +35,14 @@ class RecipeesController < ApplicationController
 
     if @recipee.save
       redirect_to recipees_path, notice: 'La receta fue creada exitosamente'
+      #respond_to { |format| format.html}
+      # format.html { redirect_to recipees_path, notice: 'Tu receta ha sido creada' }
+      # format.json { render :show, status: :created, location: @recipee }
     else
       redirect_to recipees_path, notice: 'No se pudo crear la receta'
+      #respond_to { |format| format.html}
+      # format.html { redirect_to recipees_path, notice: "No pudo crearse la receta." }
+      # format.json { render json: @recipee.errors, status: :unprocessable_entity }
     end
 
     # respond_to do |format|
@@ -104,6 +111,6 @@ class RecipeesController < ApplicationController
       #params.require(:recipee).permit(:name, :ingredients, :food_type, :ocassion, :description, :picture, :eating_qtty, :prep_time, :country, :difficulty, :rating, :location)
 
       #Test params
-      params.require(:recipee).permit(:name, :ingredients, :food_type, :ocassion, :description, :eating_qtty, :hours, :minutes, :difficulty, :rating, :tips, :avatar)
+      params.require(:recipee).permit(:name, :ingredients, :food_type, :ocassion, :description, :eating_qtty, :hours, :minutes, :difficulty, :rating, :tips, :avatar, :instructions, :video, :country)
     end
 end
