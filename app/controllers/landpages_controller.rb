@@ -1,6 +1,6 @@
 class LandpagesController < ApplicationController
   #before_action :set_landpage, only: [:show]
-  before_action :redirect_if_authenticated
+  #before_action :redirect_if_authenticated
 
   # GET /landpages
   # GET /landpages.json
