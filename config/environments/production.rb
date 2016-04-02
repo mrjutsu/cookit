@@ -85,8 +85,8 @@ config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
     :bucket => 'cookits3bucket',
-    :access_key_id => 'AKIAIXPRO7BC5CX6OJDA',
-    :secret_access_key => '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'
+    :access_key_id => '',
+    :secret_access_key => ''
   }
 }
 
